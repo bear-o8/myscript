@@ -1,9 +1,9 @@
 sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get update
-# ¸üĞÂapt°üË÷Òı
+# æ›´æ–°aptåŒ…ç´¢å¼•
 sudo apt-get update
 
-# ÎªÖ§³Öhttps
+# ä¸ºæ”¯æŒhttps
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -11,21 +11,21 @@ sudo apt-get install \
     gnupg-agent \
     software-properties-common
 
-# Ìí¼ÓDocker GPGÃØÔ¿
-# ¹úÄÚÔ´
+# æ·»åŠ Docker GPGç§˜é’¥
+# å›½å†…æº
 curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
-# ÍÆ¼ö¹úÄÚÔ´
+# æ¨èå›½å†…æº
 sudo add-apt-repository \
 	    "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/ubuntu \
 	        $(lsb_release -cs) \
 		    stable"
-# ¸üĞÂapt°üË÷Òı
+# æ›´æ–°aptåŒ…ç´¢å¼•
 sudo apt-get update
 
-# °²×°docker
+# å®‰è£…docker
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
-# Ìí¼Ó¾µÏñÔ´
+# æ·»åŠ é•œåƒæº
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
   "registry-mirrors": ["https://mirror.ccs.tencentyun.com"]
@@ -33,3 +33,13 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 EOF
 sudo systemctl enable docker
 sudo systemctl start docker
+
+
+# sudo mkdir -p /etc/docker
+# sudo tee /etc/docker/daemon.json <<-'EOF'
+# {
+#   "registry-mirrors": ["https://em2r99v3.mirror.aliyuncs.com"]
+# }
+# EOF
+# sudo systemctl daemon-reload
+# sudo systemctl restart docker
