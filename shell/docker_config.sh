@@ -19,7 +19,7 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 {
   "registry-mirrors": ["https://em2r99v3.mirror.aliyuncs.com"]
 }
-# EOF
+EOF
 sudo systemctl enable docker
 sudo systemctl start docker
 
